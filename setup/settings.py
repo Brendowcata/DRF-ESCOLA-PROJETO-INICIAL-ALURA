@@ -122,6 +122,19 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 REST_FRAMEWORK = {
-    'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.QueryParameterVersioning'
+    'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.QueryParameterVersioning', #Versionamento
+    'DEFAULT_PERMISSION_CLASSES':[ #Permissão com senha
+        'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.DjangoModelPermissions',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES':[ #autenticação
+        'rest_framework.authentication.BasicAuthentication',
+    ]
+    #'DEFAULT_THROTTLE_CLASSES':[ #limitação de requisição
+    #    'rest_framework.throttling.AnonRateThrottle',
+    #],
+    # 'DEFAULT_THROTTLE_RATES':{ #limitação de requisição
+    #     'anon': '100/day',
+    #}
 }
 
