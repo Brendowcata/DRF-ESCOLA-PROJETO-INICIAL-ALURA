@@ -49,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'setup.urls'
@@ -125,13 +126,22 @@ MEDIA_URL = '/media/'
 
 REST_FRAMEWORK = {
     'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.QueryParameterVersioning', #Versionamento
-    'DEFAULT_PERMISSION_CLASSES':[ #Permissão com senha
-        'rest_framework.permissions.IsAuthenticated',
-        'rest_framework.permissions.DjangoModelPermissions',
-    ],
-    'DEFAULT_AUTHENTICATION_CLASSES':[ #autenticação
-        'rest_framework.authentication.BasicAuthentication',
-    ]
+    #'DEFAULT_PERMISSION_CLASSES':[ #Permissão com senha
+    #    'rest_framework.permissions.IsAuthenticated',
+    #    'rest_framework.permissions.DjangoModelPermissions',
+    #],
+    #'DEFAULT_AUTHENTICATION_CLASSES':[ #autenticação
+    #    'rest_framework.authentication.BasicAuthentication',
+    #],
+
+    #'DEFAULT_PARSER_CLASSES': [ #utilizar formato json e xml
+    #    'rest_framework.parsers.JSONParser',
+    #   # 'rest_framework_xml.parsers.XMLParser',
+    #],
+    #'DEFAULT_RENDERER_CLASSES': [ #utilizar formato json e xml
+    #    'rest_framework.renderers.JSONRenderer',
+    #    #'rest_framework_xml.renderers.XMLRenderer',
+    #],
     #'DEFAULT_THROTTLE_CLASSES':[ #limitação de requisição
     #    'rest_framework.throttling.AnonRateThrottle',
     #],
@@ -139,4 +149,3 @@ REST_FRAMEWORK = {
     #     'anon': '100/day',
     #}
 }
-
